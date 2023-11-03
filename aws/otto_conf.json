@@ -1,0 +1,10 @@
+{
+  "environment": {
+    "dev": {},
+    "stage": {},
+    "sandbox": {},
+    "prod": {},
+    "github": {}
+  },
+  "CfSourceRepo": "lib-phpsdk-module-cf"
+}

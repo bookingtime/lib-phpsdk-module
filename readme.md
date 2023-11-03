@@ -1,18 +1,93 @@
-<img src="https://github.com/bookingtime/lib-phpsdk-module/blob/master/aws/logo_repo.png" alt="logo" width="150" height="150" />
+# lib-phpsdk-module
+php SDK for bookingtime module-API
 
-**Name:** *lib-phpsdk-module*<br >
-**customer:** *bookingtime*<br />
-**Description:** *rename me later*<br >
-**Type:** *react|symfony*<br >
-**local port:** *0*<br >
+<img src="https://github.com/bookingtime/lib-phpsdk-module/blob/master/aws/logo_php.png" alt="logo php" width="150" height="100" />
 
-**URL (local):** *http://127.0.0.1:0/*<br />
-**URL (dev):** *https://app.bookingtime-dev.com/lib-phpsdk-module/*<br />
-**URL (stage):** *https://app.bookingtime-stage.com/lib-phpsdk-module/*<br />
-**URL (prod):** *https://app.bookingtime.com/lib-phpsdk-module/*<br />
-**URL (sandbox):** *https://app.bookingtime-sandbox.com/lib-phpsdk-module/*<br />
 
-created by otto [bookingtime]<br >
-2023-11-03T23:15:53+01:00
+
+## Requirements
+- PHP >= 7.3
+- A PSR-4 implementation
+
+
+
+## How To Install
+The recommended way to install the SDK is through Composer.
+```bash
+composer require bookingtime/lib-phpsdk-module
+```
+see: https://packagist.org/packages/bookingtime/lib-phpsdk-module
+
+
+
+## Getting Started
+```php
+<?php
+use bookingtime\phpsdkmodule\Sdk;
+
+//create SDK
+$sdk=new Sdk(
+   '<CLIENT_ID>',
+   '',
+   ['locale'=>'en','timeout'=>15,'mock'=>FALSE]
+);
+
+//load moduleConfig for submitted organizationId/moduleConfigId
+$moduleConfig=$sdk->moduleConfig_show([
+   'organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+   'moduleConfigId'=>'5fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+]);
+
+//list all available bookingTemplates
+$bookingTemplateArray=$sdk->bookingTemplate_list([
+   'organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+]);
+
+//get list of possible bookingSlots for selected bookingTemplate and week
+$bookingSlotArray=$sdk->bookingSlot_listWeek([
+   'organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+   'bookingTemplateId'=>'fcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+   'year'=>'2023',
+   'week'=>'39',
+]);
+
+//book a new appointment
+$appointment=$sdk->appointment_add([
+   'organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+],[
+   'bookingSlotId'=>'brxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
+   'notes'=>'My first appointment',
+   'customer'=>[
+      'gender'=>'MALE',
+      'firstName'=>'Max',
+      'lastName'=>'Mustermann',
+      'email'=>'m.mustermann@bookingtime.com',
+   ],
+]);
+
+```
+
+
+
+## Help and docs
+- Support for developers: https://developer.bookingtime.com
+- See the full API documentation under https://service.bookingtime.com/apidoc/module
+
+
+
+## Security
+If you discover a security vulnerability within this package, please send an email to support@bookingtime.com or create a ticket on https://developer.bookingtime.com/hc/en-us/requests/new. All security vulnerabilities will be promptly addressed.
+
+
+
+## License
+This SDK is distributed under the MIT License, see LICENSE file for more information.
+
+
+
+---
+Copyright 2014 bookingtime GmbH. All Rights Reserved.
 
 Made with :blue_heart: by © bookingtime
+
+<img src="https://github.com/bookingtime/lib-phpsdk-module/blob/master/aws/logo_bookingtime.png" alt="logo" width="30" height="44" />
