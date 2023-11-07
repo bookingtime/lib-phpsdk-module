@@ -34,7 +34,7 @@ phases:
       - 'echo "Build started on `date`" ; pwd ; ls -lah'
 
       - 'echo "Linting AWS YAML files..."'
-      - 'docker run --rm --mount type=bind,source=$(pwd)/aws,destination=/tolint ghcr.io/bookingtime/yamllint:latest > ./test_results.txt'
+      - 'docker run --rm --mount type=bind,source=$(pwd)/aws,destination=/tolint ghcr.io/bookingtime/yamllint:latest >> ./test_results.txt'
 
       - 'echo "Building the Docker image in test environment ..."'
       - 'docker pull $IMAGE_REPO_URL:testing || true'
@@ -42,9 +42,12 @@ phases:
       - 'docker tag $REPO:testing $IMAGE_REPO_URL:testing'
       - 'export DOCKER_BUILD_SUCCEEDING=1'
 
+      - 'echo "Validate composer.json..."'
+      - 'echo "\n\n\n$(docker run --rm --name composerTest $REPO:testing composer --no-ansi validate 2>&1)\n\n\n" >> ./test_results.txt'
+
       - 'echo "Run tests..."'
       - 'echo "Start tests..." | docker run --rm --interactive --name github-comment --env GITHUB_ACCESS_TOKEN --env CODEBUILD_SOURCE_VERSION --env REPO ghcr.io/bookingtime/github-comment:latest'
-      - 'docker run --rm --name runtest $REPO:testing ./vendor/bin/phpunit -c phpunit.xml.test > ./test_results.txt'
+      - 'docker run --rm --name runtest --env BT_DISABLE_PROFILER_IN_TESTS=1 $REPO:testing ./bin/phpunit -c phpunit.xml.test >> ./test_results.txt'
   post_build:
     commands:
       - 'echo "Build completed on `date`" ; pwd ; ls -lah'
