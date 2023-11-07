@@ -26,5 +26,12 @@
         "psr-4": {
             "bookingtime\\phpsdkmodule\\": "src"
         }
+    },
+    "scripts": {
+         "bookingtime": [
+            "ln -sf ../vendor/bin/phpunit ./bin/phpunit"
+        ],
+        "post-install-cmd": ["@bookingtime"],
+        "post-update-cmd": ["@bookingtime"]
     }
 }
