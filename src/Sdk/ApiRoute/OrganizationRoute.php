@@ -94,7 +94,7 @@ class OrganizationRoute extends Route {
 				'recordTotal'=>'1',
 				'recordLimit'=>9999,
 				'recordList'=>[[
-					'class'=>'ORGANIZATION_SHORT',
+					'class'=>'ORGANIZATION',
 					'id'=>$fakeId,
 					'customId'=>'222222222',
 					'name'=>'Organization from SDK',
