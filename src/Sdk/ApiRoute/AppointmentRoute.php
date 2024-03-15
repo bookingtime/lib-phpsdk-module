@@ -130,6 +130,27 @@ class AppointmentRoute extends Route {
 
 
 	/**
+	 * move an entity
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	array		$requestContent: send this content to api
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function move(array $urlParameter,array $requestContent,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','appointmentId'],$urlParameter);
+		$response=$this->httpClient->request('PUT','/organization/'.$urlParameter['organizationId'].'/appointment/'.$urlParameter['appointmentId'].'/move',$requestContent,$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
+
+
+
+	/**
 	 * cancel an entity
 	 *
 	 * @param	array		$urlParameter: list of url paramerts like ids
