@@ -189,6 +189,8 @@ class Sdk {
 				return $apiRoute->showProtected($args[0],200);
 			} case('appointment_identify'): {
 				return $apiRoute->identify($args[0],200);
+			} case('appointment_move'): {
+				return $apiRoute->move($args[0],$args[1],200);
 			} case('appointment_cancel'): {
 				return $apiRoute->cancel($args[0],200);
 			}
