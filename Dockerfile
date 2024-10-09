@@ -1,6 +1,6 @@
 # main settings
 ARG APP_ENV
-FROM ghcr.io/bookingtime/symfony-cli-os:8.2-${APP_ENV}
+FROM ghcr.io/bookingtime/symfony-cli-os:8.3-${APP_ENV}
 LABEL maintainer="bookingtime GmbH"
 
 # set environment variables for building process
