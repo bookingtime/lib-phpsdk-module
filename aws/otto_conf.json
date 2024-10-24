@@ -6,5 +6,5 @@
     "prod": {},
     "github": {}
   },
-  "CfSourceRepo": "lib-phpsdk-module-cf"
+  "CfSourceRepo": "lib-phpsdk-cf"
 }
