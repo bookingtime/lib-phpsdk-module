@@ -88,6 +88,6 @@ This SDK is distributed under the MIT License, see LICENSE file for more informa
 ---
 Copyright 2014 bookingtime GmbH. All Rights Reserved.
 
-Made with :blue_heart: by © bookingtime
+Made by © bookingtime
 
 <img src="https://github.com/bookingtime/lib-phpsdk-module/blob/master/aws/logo_bookingtime.png" alt="logo" width="30" height="44" />
