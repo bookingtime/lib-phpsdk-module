@@ -158,6 +158,9 @@ class Sdk {
 			} case('bookingSlot'): {
 				$apiRoute=new ApiRoute\BookingSlotRoute($this->httpClient);
 				break(1);
+			} case('bookingCategory'): {
+				$apiRoute=new ApiRoute\BookingCategoryRoute($this->httpClient);
+				break(1);
 			} case('bookingTemplate'): {
 				$apiRoute=new ApiRoute\BookingTemplateRoute($this->httpClient);
 				break(1);
@@ -219,6 +222,13 @@ class Sdk {
 				return $apiRoute->listWeek($args[0],200);
 			} case('bookingSlot_listMonth'): {
 				return $apiRoute->listMonth($args[0],200);
+			}
+		}
+
+		//bookingCategory
+		switch($name) {
+			case('bookingCategory_tree'): {
+				return $apiRoute->tree($args[0],200);
 			}
 		}
 

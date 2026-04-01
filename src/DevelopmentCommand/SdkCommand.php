@@ -119,6 +119,10 @@ class SdkCommand extends Command {
 		// $bookingSlotArray=$sdk->bookingSlot_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','year'=>'2023','month'=>'9']);
 		#die(BasicLib::debug($bookingSlotArray));
 
+		#BOOKINGCATEGORY
+		#$bookingCategoryArray=$sdk->bookingCategory_tree(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO']);
+		#die(BasicLib::debug($bookingCategoryArray));
+
 		#BOOKINGTEMPLATE
 		// $bookingTemplate=$sdk->bookingTemplate_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL']);
 		// $bookingTemplate=$sdk->bookingTemplate_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customId'=>'666']);

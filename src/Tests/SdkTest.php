@@ -113,6 +113,10 @@ class SdkTest extends TestCase {
 		$bookingSlotArray=$sdk->bookingSlot_listMonth(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingTemplateId'=>'fcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','year'=>'2023','month'=>'9']);
 		$this->assertEquals($bookingSlotArray['class'],'RANGE_LIST');
 
+		#BOOKINGCATEGORY
+		$bookingCategoryArray=$sdk->bookingCategory_tree(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
+		$this->assertEquals($bookingCategoryArray['mock-content'],1);
+
 		#BOOKINGTEMPLATE
 		$bookingTemplate=$sdk->bookingTemplate_show(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','bookingTemplateId'=>'fcxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx']);
 		$this->assertEquals($bookingTemplate['class'],'BOOKING_TEMPLATE');
