@@ -87,6 +87,8 @@ class SdkTest extends TestCase {
 		$this->assertEquals($appointment['mock-content'],1);
 		$appointment=$sdk->appointment_identify(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','customId'=>'123']);
 		$this->assertEquals($appointment['mock-content'],1);
+		$appointment=$sdk->appointment_identifyByAppointmentCode(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentCode'=>'123456','year'=>'2026','month'=>'9','day'=>'12']);
+		$this->assertEquals($appointment['mock-content'],1);
 		$data=['bookingSlotId'=>'4fxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'];
 		$appointment=$sdk->appointment_move(['organizationId'=>'f6xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx','appointmentId'=>'edxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'],$data);
 		$this->assertEquals($appointment['mock-content'],1);
