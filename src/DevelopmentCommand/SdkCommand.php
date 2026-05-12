@@ -98,6 +98,8 @@ class SdkCommand extends Command {
 		// $appointment=$sdk->appointment_show(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		// $appointment=$sdk->appointment_showProtected(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX']);
 		// $appointment=$sdk->appointment_identify(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','customId'=>'123']);
+		#$appointment=$sdk->appointment_identifyByAppointmentCode(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentCode'=>'123456','year'=>'2026','month'=>'9','day'=>'12']);
+
 		// $data=['bookingSlotId'=>'4f6gl70xpd6oeqis236e1f80ac7acd54'];
 		// $appointment=$sdk->appointment_move(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','appointmentId'=>'eddXX23behodfOJck69hZW1y8dJYbDkX'],$data);
 		// $this->assertEquals($appointment['mock-content'],1);
