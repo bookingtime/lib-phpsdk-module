@@ -142,7 +142,7 @@ class AppointmentRoute extends Route {
 
 		//make request to API
 		$this->checkUrlParameters(['organizationId','appointmentCode','year','month','day'],$urlParameter);
-		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/'.$urlParameter['appointmentCode'].'/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/identify',[],$expectedResponseCode);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/appointment/'.$urlParameter['appointmentCode'].'/year/'.$urlParameter['year'].'/month/'.$urlParameter['month'].'/day/'.$urlParameter['day'].'/identifyByAppointmentCode',[],$expectedResponseCode);
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
