@@ -224,6 +224,8 @@ class Sdk {
 				return $apiRoute->listWeek($args[0],200);
 			} case('bookingSlot_listMonth'): {
 				return $apiRoute->listMonth($args[0],200);
+			} case('bookingSlot_listRange'): {
+				return $apiRoute->listRange($args[0],200);
 			}
 		}
 

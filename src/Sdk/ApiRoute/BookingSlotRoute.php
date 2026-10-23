@@ -201,4 +201,24 @@ class BookingSlotRoute extends Route {
 		#die(BasicLib::debug($response));
 		return $response['content'];
 	}
+
+
+
+	/**
+	 * list range
+	 *
+	 * @param	array		$urlParameter: list of url paramerts like ids
+	 * @param	integer	$expectedResponseCode: expected http response code for http-client
+	 * @return	array		reponse content
+	 */
+	public function listRange(array $urlParameter,$expectedResponseCode) {
+		//check submitted parameters
+		BasicLib::checkType('integer',$expectedResponseCode,__METHOD__.'(): expectedResponseCode');
+
+		//make request to API
+		$this->checkUrlParameters(['organizationId','bookingTemplateId','yearStart','monthStart','dayStart','yearEnd','monthEnd','dayEnd'],$urlParameter);
+		$response=$this->httpClient->request('GET','/organization/'.$urlParameter['organizationId'].'/bookingTemplate/'.$urlParameter['bookingTemplateId'].'/bookingSlot/year/'.$urlParameter['yearStart'].'/month/'.$urlParameter['monthStart'].'/day/'.$urlParameter['dayStart'].'/year/'.$urlParameter['yearEnd'].'/month/'.$urlParameter['monthEnd'].'/day/'.$urlParameter['dayEnd'].'/listRange',[],$expectedResponseCode);
+		#die(BasicLib::debug($response));
+		return $response['content'];
+	}
 }
