@@ -119,6 +119,7 @@ class SdkCommand extends Command {
 		// $bookingSlotArray=$sdk->bookingSlot_listDay(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcH6XzCnbhf5Ih5ISFMOtQTvFpTDxItv','year'=>'2022','month'=>'12','day'=>'12']);
 		// $bookingSlotArray=$sdk->bookingSlot_listWeek(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','year'=>'2023','week'=>'39']);
 		// $bookingSlotArray=$sdk->bookingSlot_listMonth(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','year'=>'2023','month'=>'9']);
+		// $bookingSlotArray=$sdk->bookingSlot_listRange(['organizationId'=>'f6dS3eSezWO4ohcznIzoTb5JzzMB9nsO','bookingTemplateId'=>'fcrVx2aWQzDnd1MZkEeVbVDt6wuFCJIL','yearStart'=>'2026','monthStart'=>'10','dayStart'=>'1','yearEnd'=>'2026','monthEnd'=>'10','dayEnd'=>'31']);
 		#die(BasicLib::debug($bookingSlotArray));
 
 		#BOOKINGCATEGORY
